@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome', compact('posts'));
 // });
 Auth::routes();
-
+Route::get('about', function() {
+    return view('about');
+})->name('about');
 Route::get('/', [App\Http\Controllers\PostController::class, 'index']);
 Route::post('posts', [App\Http\Controllers\PostController::class, 'store']);
 Route::get('user_posts', [App\Http\Controllers\PostController::class, 'all']);

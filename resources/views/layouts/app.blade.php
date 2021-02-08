@@ -29,10 +29,12 @@
                 </a>
                 <div class="ml-4">Senior Full Stack Laravel <span class="font-semibold">LARAJOB</span></div>
             </div>
-
-            @auth
             
             <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
+                <a href="{{ route('about') }}" class="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
+                        About
+                </a>
+                @auth
                     <a href="{{ route('home') }}" class="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
                         Dashboard
                     </a>
@@ -42,19 +44,19 @@
                             Sign out
                         </button>
                     </form>
+                    @else
+                    <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
+                        <a href="{{ route('login') }}" class="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
+                            Sign in
+                        </a>
+                        <span class="inline-flex rounded-md shadow-sm">
+                            <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
+                                Sign up
+                            </a>
+                        </span>
+                    </div>
+                    @endauth
             </div>
-            @else
-            <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
-                <a href="{{ route('login') }}" class="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
-                    Sign in
-                </a>
-                <span class="inline-flex rounded-md shadow-sm">
-                    <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
-                        Sign up
-                    </a>
-                </span>
-            </div>
-            @endauth
         </div>
     </header>
     @yield('content')
