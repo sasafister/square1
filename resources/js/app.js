@@ -18,8 +18,35 @@ window.Vue = require('vue').default;
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import VueRouter from 'vue-router'
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+const routes = [
+    {
+        name: 'AllPosts',
+        path: '/',
+        exact: true,
+        component: () => import('./components/AllPosts.vue'),
+    },
+    {
+        name: 'CreatePost',
+        path: '/create-post',
+        exact: true,
+        component: () => import('./components/CreatePost.vue'),
+    },
+    {
+        name: 'ImportPosts',
+        path: '/import-posts',
+        exact: true,
+        component: () => import('./components/ImportPosts.vue'),
+    },
+  ]
+  
+const router = new VueRouter({
+    routes // short for `routes: routes`
+})
+
+Vue.use(VueRouter)
+Vue.component('home', require('./components/Home.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +56,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router
 });
