@@ -109,7 +109,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     importAll: function importAll() {
-      axios.post('/posts', this.posts).then(function (response) {
+      axios.post('/import-posts', this.posts).then(function (response) {
         console.log(response);
       });
     }

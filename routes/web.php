@@ -13,16 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function() {
-//     $posts = Post::all();
-//     return view('welcome', compact('posts'));
-// });
 Auth::routes();
+
 Route::get('about', function() {
     return view('about');
 })->name('about');
+
 Route::get('/', [App\Http\Controllers\PostController::class, 'index']);
 Route::post('posts', [App\Http\Controllers\PostController::class, 'store']);
-Route::get('user_posts', [App\Http\Controllers\PostController::class, 'all']);
+Route::get('user-posts', [App\Http\Controllers\PostController::class, 'all']);
+Route::post('import-posts', [App\Http\Controllers\ImportController::class, 'store']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

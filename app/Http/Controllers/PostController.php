@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Services\PostService;
 use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
@@ -12,22 +13,37 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
-        return view('welcome', compact('posts'));
+        try {
+            $posts = Post::all();
+            return view('welcome', compact('posts'));
+        } catch (\Expection $e) {
+            return $e->getMessage();
+        }
+    
     }
 
     public function store(Request $request) 
     {
         $data = $request->input();
         $data['user_id'] = auth()->id();
-        Post::create($data);
+
+        try {
+            Post::create($data);
+
+            return response()->json(['success' => true]);
+        } catch (\Expection $e) {
+            return $e->getMessage();
+        }
     }
 
-
-    public function all() 
+    public function all(PostService $postService) 
     {
-        return Cache::remember('user-posts', self::TWO_HOURS, function() {
-            return Post::whereUserId(auth()->id())->get();
-        });
+        try {
+            return Cache::remember('user-posts', self::TWO_HOURS, function() use ($postService) {
+                return $postService->getPosts();
+            });
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

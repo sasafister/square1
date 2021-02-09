@@ -42,7 +42,7 @@ export default {
                 description: this.description,
                 publication_date: this.publication_date
             }
-            axios.post('posts', data).then(response => {
+            axios.post('/posts', data).then(response => {
                 console.log(response);
             })
         }

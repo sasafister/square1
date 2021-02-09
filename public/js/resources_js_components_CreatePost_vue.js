@@ -62,7 +62,7 @@ __webpack_require__.r(__webpack_exports__);
         description: this.description,
         publication_date: this.publication_date
       };
-      axios.post('posts', data).then(function (response) {
+      axios.post('/posts', data).then(function (response) {
         console.log(response);
       });
     }

@@ -2,6 +2,6 @@
 
 @section('content')
 <div id="app">
-    <home :loggedUser="{{ auth()->user() }}"/>
+    <home />
 </div>
 @endsection

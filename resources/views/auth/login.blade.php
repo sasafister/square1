@@ -8,11 +8,11 @@
         <div class="flex flex-col items-center md:flex-row">
 
             <div class="w-full space-y-5 md:w-3/5 md:pr-16">
-                <p class="font-medium text-blue-500 uppercase">Building Businesses</p>
+                <p class="font-medium text-blue-500 uppercase">just login</p>
                 <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">
-                    Changing The Way People Do Business.
+                    Login with your existing credentials.
                 </h2>
-                <p class="text-xl text-gray-600 md:pr-16">Learn how to engage with your visitors and teach them about your mission. We're revolutionizing the way customers and businesses interact.</p>
+                <p class="text-xl text-gray-600 md:pr-16">Login to access your private dashboard with some features like ability to write posts, import posts or see all your posts.</p>
             </div>
 
             <form method="POST" action="{{ route('login') }}" class="w-full mt-16 md:mt-0 md:w-2/5">
@@ -28,7 +28,7 @@
                     <div class="block">
                         <button class="w-full px-3 py-4 font-medium text-white bg-blue-600 rounded-lg">Log Me In</button>
                     </div>
-                    <p class="w-full mt-4 text-sm text-center text-gray-500">Don't have an account? <a href="#_" class="text-blue-500 underline">Sign up here</a></p>
+                    <p class="w-full mt-4 text-sm text-center text-gray-500">Don't have an account? <a href="{{ route('register') }}" class="text-blue-500 underline">Sign up here</a></p>
                 </div>
             </form>
 

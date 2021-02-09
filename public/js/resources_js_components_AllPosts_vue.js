@@ -88,7 +88,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('user_posts').then(function (response) {
+    axios.get('/user-posts').then(function (response) {
       _this.posts = response.data;
     });
   }

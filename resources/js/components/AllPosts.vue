@@ -70,7 +70,7 @@ export default {
         }
     },
     mounted() {
-        axios.get('user_posts').then(response => {
+        axios.get('/user-posts').then(response => {
             this.posts = response.data
         })
     },

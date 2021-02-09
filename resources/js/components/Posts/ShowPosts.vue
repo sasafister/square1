@@ -33,7 +33,7 @@ export default {
     },
     methods: {
         importAll() {
-            axios.post('/posts', this.posts).then(response => {
+            axios.post('/import-posts', this.posts).then(response => {
                 console.log(response);
             })
         }
