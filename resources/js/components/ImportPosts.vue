@@ -8,10 +8,12 @@
             </div>
         </header>
         <main>
-            <div class="max-w-7xl mx-2 sm:mx-auto py-6 sm:px-6 lg:px-8 ">
-                <label for="url" class="font-semibold">Import URL</label>
-                <input name="url" v-model="url" class="border w-full rounded-sm h-12 mb-2 p-2" />
-                <button @click="submit" class="w-28 px-3 py-4 font-medium text-white bg-blue-600 rounded-lg">Submit</button>
+            <div class="max-w-7xl mx-2 sm:mx-auto py-6 sm:px-6 lg:px-8">
+                <div class="flex space-x-1">
+                    <label for="url" class="font-semibold">Import URL</label>
+                    <input name="url" v-model="url" class="border w-full rounded-sm h-12 mb-2 p-2" />
+                    <button @click="submit" class="w-28 px-3 py-3 font-medium text-white bg-blue-600 rounded-lg">Submit</button>
+                </div>
                 <div class="my-4 text-gray-600" v-if="loading">Loading ...</div>
                 <ShowPosts :posts="posts" v-else/>
             </div>

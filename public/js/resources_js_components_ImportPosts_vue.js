@@ -35,6 +35,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -92,16 +94,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'ShowPosts',
   props: {
@@ -109,8 +101,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     importAll: function importAll() {
+      var _this = this;
+
       axios.post('/import-posts', this.posts).then(function (response) {
-        console.log(response);
+        _this.$router.push({
+          name: 'AllPosts'
+        });
       });
     }
   }
@@ -284,43 +280,47 @@ var render = function() {
     _c("main", [
       _c(
         "div",
-        { staticClass: "max-w-7xl mx-2 sm:mx-auto py-6 sm:px-6 lg:px-8 " },
+        { staticClass: "max-w-7xl mx-2 sm:mx-auto py-6 sm:px-6 lg:px-8" },
         [
-          _c("label", { staticClass: "font-semibold", attrs: { for: "url" } }, [
-            _vm._v("Import URL")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.url,
-                expression: "url"
-              }
-            ],
-            staticClass: "border w-full rounded-sm h-12 mb-2 p-2",
-            attrs: { name: "url" },
-            domProps: { value: _vm.url },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+          _c("div", { staticClass: "flex space-x-1" }, [
+            _c(
+              "label",
+              { staticClass: "font-semibold", attrs: { for: "url" } },
+              [_vm._v("Import URL")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.url,
+                  expression: "url"
                 }
-                _vm.url = $event.target.value
+              ],
+              staticClass: "border w-full rounded-sm h-12 mb-2 p-2",
+              attrs: { name: "url" },
+              domProps: { value: _vm.url },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.url = $event.target.value
+                }
               }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "w-28 px-3 py-4 font-medium text-white bg-blue-600 rounded-lg",
-              on: { click: _vm.submit }
-            },
-            [_vm._v("Submit")]
-          ),
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "w-28 px-3 py-3 font-medium text-white bg-blue-600 rounded-lg",
+                on: { click: _vm.submit }
+              },
+              [_vm._v("Submit")]
+            )
+          ]),
           _vm._v(" "),
           _vm.loading
             ? _c("div", { staticClass: "my-4 text-gray-600" }, [
@@ -379,9 +379,21 @@ var render = function() {
     "section",
     { staticClass: "text-gray-600 body-font overflow-hidden" },
     [
+      _vm.posts.length
+        ? _c(
+            "button",
+            {
+              staticClass:
+                "w-28 mt-4 px-3 py-4 font-medium text-white bg-blue-600 rounded-lg",
+              on: { click: _vm.importAll }
+            },
+            [_vm._v("Import All")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "container px-5 py-24 mx-auto" },
+        { staticClass: "container px-5 pt-12 mx-auto" },
         _vm._l(_vm.posts, function(post) {
           return _c(
             "div",
@@ -391,8 +403,6 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "py-8 flex flex-wrap md:flex-nowrap" }, [
-                _vm._m(0, true),
-                _vm._v(" "),
                 _c("div", { staticClass: "md:flex-grow" }, [
                   _c(
                     "h2",
@@ -405,79 +415,18 @@ var render = function() {
                   _vm._v(" "),
                   _c("p", { staticClass: "leading-relaxed" }, [
                     _vm._v(_vm._s(post.description))
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "text-indigo-500 inline-flex items-center mt-4"
-                    },
-                    [
-                      _vm._v("Import post\n                        "),
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-4 h-4 ml-2",
-                          attrs: {
-                            viewBox: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            fill: "none",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("path", { attrs: { d: "M5 12h14" } }),
-                          _vm._v(" "),
-                          _c("path", { attrs: { d: "M12 5l7 7-7 7" } })
-                        ]
-                      )
-                    ]
-                  )
+                  ])
                 ])
               ])
             ]
           )
         }),
         0
-      ),
-      _vm._v(" "),
-      _vm.posts.length
-        ? _c(
-            "button",
-            {
-              staticClass:
-                "w-28 px-3 py-4 font-medium text-white bg-blue-600 rounded-lg",
-              on: { click: _vm.importAll }
-            },
-            [_vm._v("Import All")]
-          )
-        : _vm._e()
+      )
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col" },
-      [
-        _c("span", { staticClass: "font-semibold title-font text-gray-700" }, [
-          _vm._v("CATEGORY")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "mt-1 text-gray-500 text-sm" }, [
-          _vm._v("12 Jun 2019")
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

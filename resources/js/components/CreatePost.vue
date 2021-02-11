@@ -43,7 +43,7 @@ export default {
                 publication_date: this.publication_date
             }
             axios.post('/posts', data).then(response => {
-                console.log(response);
+                this.$router.push({ name: 'AllPosts' })
             })
         }
     }

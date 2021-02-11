@@ -19,9 +19,9 @@ Route::get('about', function() {
     return view('about');
 })->name('about');
 
-Route::get('/', [App\Http\Controllers\PostController::class, 'index']);
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::post('posts', [App\Http\Controllers\PostController::class, 'store']);
 Route::get('user-posts', [App\Http\Controllers\PostController::class, 'all']);
 Route::post('import-posts', [App\Http\Controllers\ImportController::class, 'store']);
+Route::get('/{sort?}', [App\Http\Controllers\PostController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

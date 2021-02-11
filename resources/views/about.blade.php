@@ -29,16 +29,16 @@
                 <div class="p-3 text-white  rounded-full">
                     <img src="https://laravel.com/img/logomark.min.svg" class="h-16" alt="">
                 </div>
-                <h4 class="text-xl font-medium text-gray-700">Laravel 8</h4>
-                <p class="text-base text-center text-gray-500">Each of our plan will provide you and your team with certifications.</p>
+                <h4 class="text-xl font-medium text-gray-700">Laravel</h4>
+                <p class="text-base text-center text-gray-500">Laravel is great framework, easy to use and very intuitive. I like it from version 3.</p>
             </div>
 
             <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl">
                 <div class="p-3 text-white rounded-full">
                     <img src="https://vuejs.org/images/logo.png" class="h-16" alt="">
                 </div>
-                <h4 class="text-xl font-medium text-gray-700">VueJS + Vuex</h4>
-                <p class="text-base text-center text-gray-500">Send out notifications to all your customers to keep them engaged.</p>
+                <h4 class="text-xl font-medium text-gray-700">VueJS</h4>
+                <p class="text-base text-center text-gray-500">One of the best frontend frameworks I used. It's very simple and Vue3 is very promising. I like Composition API.</p>
             </div>
 
             <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl">
@@ -46,7 +46,7 @@
                  <img class="h-12" src="https://camo.githubusercontent.com/53b9876cd8e38928387c6824043b0e2772b15b1bfdb7f42d0864216abbf3dfe8/68747470733a2f2f7265666163746f72696e6775692e6e7963332e63646e2e6469676974616c6f6365616e7370616365732e636f6d2f7461696c77696e642d6c6f676f2e737667" alt="">
                 </div>
                 <h4 class="text-xl font-medium text-gray-700">Tailwind</h4>
-                <p class="text-base text-center text-gray-500">The right kind of building blocks to take your company to the next level.</p>
+                <p class="text-base text-center text-gray-500">Amazing how far css went. Adam is very smart guy, and I love approach TW is offering. Once you remember syntax it's easy to create websites.</p>
             </div>
         </div>
     </div>

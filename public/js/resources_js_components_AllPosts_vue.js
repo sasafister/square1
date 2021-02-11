@@ -57,21 +57,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'AllPosts',
@@ -234,17 +219,9 @@ var render = function() {
                                   "div",
                                   { staticClass: "text-sm text-gray-900" },
                                   [_vm._v(_vm._s(post.title))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "text-sm text-gray-500" },
-                                  [_vm._v("Optimization")]
                                 )
                               ]
                             ),
-                            _vm._v(" "),
-                            _vm._m(1, true),
                             _vm._v(" "),
                             _c(
                               "td",
@@ -260,20 +237,7 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                staticClass:
-                                  "px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                    Admin\n                "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _vm._m(2, true)
+                            _vm._m(1, true)
                           ])
                         }),
                         0
@@ -313,27 +277,7 @@ var staticRenderFns = [
               "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
             attrs: { scope: "col" }
           },
-          [_vm._v("\n                    Status\n                ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
-            attrs: { scope: "col" }
-          },
           [_vm._v("\n                    Publication Date\n                ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",
-            attrs: { scope: "col" }
-          },
-          [_vm._v("\n                    Role\n                ")]
         ),
         _vm._v(" "),
         _c(
@@ -342,21 +286,6 @@ var staticRenderFns = [
           [_c("span", { staticClass: "sr-only" }, [_vm._v("Edit")])]
         )
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "px-6 py-4 whitespace-nowrap" }, [
-      _c(
-        "span",
-        {
-          staticClass:
-            "px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-        },
-        [_vm._v("\n                    Active\n                    ")]
-      )
     ])
   },
   function() {

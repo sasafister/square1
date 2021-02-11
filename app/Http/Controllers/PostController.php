@@ -11,10 +11,18 @@ class PostController extends Controller
 {
     const TWO_HOURS = 7200;
 
-    public function index()
+    public function index(PostService $postService)
     {
+        $sort = request()->input('sortBy');
         try {
-            $posts = Post::all();
+            if(isset($sort)) {
+                Cache::forget('all-posts');
+                $posts = $postService->getAllPosts($sort);
+            } else {
+                $posts = Cache::remember('all-posts', self::TWO_HOURS, function() use ($postService) {
+                    return $postService->getAllPosts();
+                });
+            }
             return view('welcome', compact('posts'));
         } catch (\Expection $e) {
             return $e->getMessage();
@@ -29,7 +37,6 @@ class PostController extends Controller
 
         try {
             Post::create($data);
-
             return response()->json(['success' => true]);
         } catch (\Expection $e) {
             return $e->getMessage();
@@ -40,7 +47,7 @@ class PostController extends Controller
     {
         try {
             return Cache::remember('user-posts', self::TWO_HOURS, function() use ($postService) {
-                return $postService->getPosts();
+                return $postService->getUserPosts();
             });
         } catch (\Exception $e) {
             return $e->getMessage();
